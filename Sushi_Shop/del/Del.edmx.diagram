@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7d63602f5c5e4f6388481a6ddeae6cc2" Name="Diagram1">
+        <EntityTypeShape EntityType="SushiModel.Authorization" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Blida" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Chek" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Dolgnost" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Klinet" Width="1.5" PointX="3" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Otdel" Width="1.5" PointX="1.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Postavhik" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Prikaz_o_Prieme" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Prikaz_ob_Ovolen" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Rezume" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Role" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Soiskatel" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Sotrudniki" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SushiModel.Zakaz" Width="1.5" PointX="5.25" PointY="18.875" IsExpanded="true" />
+        <AssociationConnector Association="SushiModel.FK_Authorization_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Sotrudnik_Authorization" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Blida_Postavhik" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Zakaz_Blida" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Chek_Sotrudniki" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Chek_Zakaz" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Otdel_Dolg" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Prikaz_o_Prieme_Dolgnost" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Sotrudnik_Dolgnost" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Blida_Klinet" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Prikaz_o_Prieme_Soiskatel" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Sotrudnik_Prikaz_o_Prieme" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Prikaz_ob_Ovolen_Sotrudniki" ManuallyRouted="false" />
+        <AssociationConnector Association="SushiModel.FK_Rezume_Soiskatel" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

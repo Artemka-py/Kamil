@@ -1,0 +1,963 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SushiModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="ID_Authorization" />
+          </Key>
+          <Property Name="ID_Authorization" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ID_Role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Blida">
+          <Key>
+            <PropertyRef Name="ID_Blida" />
+          </Key>
+          <Property Name="ID_Blida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Blida" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Prica_Blide" Type="int" Nullable="false" />
+          <Property Name="ID_Postavhik" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chek">
+          <Key>
+            <PropertyRef Name="ID_Chek" />
+          </Key>
+          <Property Name="ID_Chek" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number_of_Check" Type="int" Nullable="false" />
+          <Property Name="ID_Sotrudnika" Type="int" Nullable="false" />
+          <Property Name="ID_Zakaz" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dolgnost">
+          <Key>
+            <PropertyRef Name="ID_Dolgnost" />
+          </Key>
+          <Property Name="ID_Dolgnost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Dolgnost" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Oklad_of_Dolgnost" Type="decimal" Precision="32" Scale="2" Nullable="false" />
+          <Property Name="ID_Otdel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klinet">
+          <Key>
+            <PropertyRef Name="ID_Klinet" />
+          </Key>
+          <Property Name="ID_Klinet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Familia_Klinet" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Name_Klinet" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Otchestvo_Klinet" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nomet_Telefona" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Otdel">
+          <Key>
+            <PropertyRef Name="ID_Otdel" />
+          </Key>
+          <Property Name="ID_Otdel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Otdel" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Postavhik">
+          <Key>
+            <PropertyRef Name="ID_Postavhik" />
+          </Key>
+          <Property Name="ID_Postavhik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Familia_Postavhik" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Name_Postavhik" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Otchestvo_Postavik" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Seria_Document" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Nomer_Document" Type="varchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prikaz_o_Prieme">
+          <Key>
+            <PropertyRef Name="ID_Prikaz_o_Prieme" />
+          </Key>
+          <Property Name="ID_Prikaz_o_Prieme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Dolgnost" Type="int" Nullable="false" />
+          <Property Name="ID_Soiskatel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prikaz_ob_Ovolen">
+          <Key>
+            <PropertyRef Name="ID_Prikaz_ob_Ovolen" />
+          </Key>
+          <Property Name="ID_Prikaz_ob_Ovolen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nomer_Prikaz" Type="int" Nullable="false" />
+          <Property Name="Prichina" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="ID_Sotrudnika" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rezume">
+          <Key>
+            <PropertyRef Name="ID_Rezume" />
+          </Key>
+          <Property Name="ID_Rezume" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Soiskatel" Type="int" Nullable="false" />
+          <Property Name="Cel" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Obrazovanii" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Opit_Raboti" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Proff_Naviki" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_Role" />
+          </Key>
+          <Property Name="ID_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Role" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Soiskatel">
+          <Key>
+            <PropertyRef Name="ID_Soiskatel" />
+          </Key>
+          <Property Name="ID_Soiskatel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Familia_Soiskatel" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Name_Soiskatel" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Otchestvo_Soiskatel" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Seria_Document" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Nomer_Document" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Data_Rojdrnia" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sotrudniki">
+          <Key>
+            <PropertyRef Name="ID_Sotrudnika" />
+          </Key>
+          <Property Name="ID_Sotrudnika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Familia_Sotrudnika" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name_Sotrudnika" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Otchestvo_Sotrudnika" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Seria_Document" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Number_Document" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ID_Dolgnost" Type="int" Nullable="false" />
+          <Property Name="ID_Authorization" Type="int" Nullable="false" />
+          <Property Name="ID_Prikaz_o_Prieme" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zakaz">
+          <Key>
+            <PropertyRef Name="ID_Zakaz" />
+          </Key>
+          <Property Name="ID_Zakaz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Blida" Type="int" Nullable="false" />
+          <Property Name="ID_Klinet" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Authorization_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_Role" />
+            </Principal>
+            <Dependent Role="Authorization">
+              <PropertyRef Name="ID_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blida_Klinet">
+          <End Role="Klinet" Type="Self.Klinet" Multiplicity="1" />
+          <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klinet">
+              <PropertyRef Name="ID_Klinet" />
+            </Principal>
+            <Dependent Role="Zakaz">
+              <PropertyRef Name="ID_Klinet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blida_Postavhik">
+          <End Role="Postavhik" Type="Self.Postavhik" Multiplicity="1" />
+          <End Role="Blida" Type="Self.Blida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postavhik">
+              <PropertyRef Name="ID_Postavhik" />
+            </Principal>
+            <Dependent Role="Blida">
+              <PropertyRef Name="ID_Postavhik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chek_Sotrudniki">
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="1" />
+          <End Role="Chek" Type="Self.Chek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudniki">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Principal>
+            <Dependent Role="Chek">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chek_Zakaz">
+          <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="1" />
+          <End Role="Chek" Type="Self.Chek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zakaz">
+              <PropertyRef Name="ID_Zakaz" />
+            </Principal>
+            <Dependent Role="Chek">
+              <PropertyRef Name="ID_Zakaz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otdel_Dolg">
+          <End Role="Otdel" Type="Self.Otdel" Multiplicity="1" />
+          <End Role="Dolgnost" Type="Self.Dolgnost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Otdel">
+              <PropertyRef Name="ID_Otdel" />
+            </Principal>
+            <Dependent Role="Dolgnost">
+              <PropertyRef Name="ID_Otdel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prikaz_o_Prieme_Dolgnost">
+          <End Role="Dolgnost" Type="Self.Dolgnost" Multiplicity="1" />
+          <End Role="Prikaz_o_Prieme" Type="Self.Prikaz_o_Prieme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolgnost">
+              <PropertyRef Name="ID_Dolgnost" />
+            </Principal>
+            <Dependent Role="Prikaz_o_Prieme">
+              <PropertyRef Name="ID_Dolgnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prikaz_o_Prieme_Soiskatel">
+          <End Role="Soiskatel" Type="Self.Soiskatel" Multiplicity="1" />
+          <End Role="Prikaz_o_Prieme" Type="Self.Prikaz_o_Prieme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Soiskatel">
+              <PropertyRef Name="ID_Soiskatel" />
+            </Principal>
+            <Dependent Role="Prikaz_o_Prieme">
+              <PropertyRef Name="ID_Soiskatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prikaz_ob_Ovolen_Sotrudniki">
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="1" />
+          <End Role="Prikaz_ob_Ovolen" Type="Self.Prikaz_ob_Ovolen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudniki">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Principal>
+            <Dependent Role="Prikaz_ob_Ovolen">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_Soiskatel">
+          <End Role="Soiskatel" Type="Self.Soiskatel" Multiplicity="1" />
+          <End Role="Rezume" Type="Self.Rezume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Soiskatel">
+              <PropertyRef Name="ID_Soiskatel" />
+            </Principal>
+            <Dependent Role="Rezume">
+              <PropertyRef Name="ID_Soiskatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="1" />
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="ID_Authorization" />
+            </Principal>
+            <Dependent Role="Sotrudniki">
+              <PropertyRef Name="ID_Authorization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Dolgnost">
+          <End Role="Dolgnost" Type="Self.Dolgnost" Multiplicity="1" />
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolgnost">
+              <PropertyRef Name="ID_Dolgnost" />
+            </Principal>
+            <Dependent Role="Sotrudniki">
+              <PropertyRef Name="ID_Dolgnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Prikaz_o_Prieme">
+          <End Role="Prikaz_o_Prieme" Type="Self.Prikaz_o_Prieme" Multiplicity="1" />
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prikaz_o_Prieme">
+              <PropertyRef Name="ID_Prikaz_o_Prieme" />
+            </Principal>
+            <Dependent Role="Sotrudniki">
+              <PropertyRef Name="ID_Prikaz_o_Prieme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakaz_Blida">
+          <End Role="Blida" Type="Self.Blida" Multiplicity="1" />
+          <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blida">
+              <PropertyRef Name="ID_Blida" />
+            </Principal>
+            <Dependent Role="Zakaz">
+              <PropertyRef Name="ID_Blida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SushiModelContainer">
+          <EntitySet Name="Authorization" EntityType="Self.Authorization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blida" EntityType="Self.Blida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chek" EntityType="Self.Chek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dolgnost" EntityType="Self.Dolgnost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klinet" EntityType="Self.Klinet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Otdel" EntityType="Self.Otdel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Postavhik" EntityType="Self.Postavhik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prikaz_o_Prieme" EntityType="Self.Prikaz_o_Prieme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prikaz_ob_Ovolen" EntityType="Self.Prikaz_ob_Ovolen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rezume" EntityType="Self.Rezume" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Soiskatel" EntityType="Self.Soiskatel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sotrudniki" EntityType="Self.Sotrudniki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zakaz" EntityType="Self.Zakaz" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Authorization_Role" Association="Self.FK_Authorization_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Authorization" EntitySet="Authorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blida_Klinet" Association="Self.FK_Blida_Klinet">
+            <End Role="Klinet" EntitySet="Klinet" />
+            <End Role="Zakaz" EntitySet="Zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blida_Postavhik" Association="Self.FK_Blida_Postavhik">
+            <End Role="Postavhik" EntitySet="Postavhik" />
+            <End Role="Blida" EntitySet="Blida" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chek_Sotrudniki" Association="Self.FK_Chek_Sotrudniki">
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+            <End Role="Chek" EntitySet="Chek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chek_Zakaz" Association="Self.FK_Chek_Zakaz">
+            <End Role="Zakaz" EntitySet="Zakaz" />
+            <End Role="Chek" EntitySet="Chek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otdel_Dolg" Association="Self.FK_Otdel_Dolg">
+            <End Role="Otdel" EntitySet="Otdel" />
+            <End Role="Dolgnost" EntitySet="Dolgnost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prikaz_o_Prieme_Dolgnost" Association="Self.FK_Prikaz_o_Prieme_Dolgnost">
+            <End Role="Dolgnost" EntitySet="Dolgnost" />
+            <End Role="Prikaz_o_Prieme" EntitySet="Prikaz_o_Prieme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prikaz_o_Prieme_Soiskatel" Association="Self.FK_Prikaz_o_Prieme_Soiskatel">
+            <End Role="Soiskatel" EntitySet="Soiskatel" />
+            <End Role="Prikaz_o_Prieme" EntitySet="Prikaz_o_Prieme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prikaz_ob_Ovolen_Sotrudniki" Association="Self.FK_Prikaz_ob_Ovolen_Sotrudniki">
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+            <End Role="Prikaz_ob_Ovolen" EntitySet="Prikaz_ob_Ovolen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_Soiskatel" Association="Self.FK_Rezume_Soiskatel">
+            <End Role="Soiskatel" EntitySet="Soiskatel" />
+            <End Role="Rezume" EntitySet="Rezume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Authorization" Association="Self.FK_Sotrudnik_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Dolgnost" Association="Self.FK_Sotrudnik_Dolgnost">
+            <End Role="Dolgnost" EntitySet="Dolgnost" />
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Prikaz_o_Prieme" Association="Self.FK_Sotrudnik_Prikaz_o_Prieme">
+            <End Role="Prikaz_o_Prieme" EntitySet="Prikaz_o_Prieme" />
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakaz_Blida" Association="Self.FK_Zakaz_Blida">
+            <End Role="Blida" EntitySet="Blida" />
+            <End Role="Zakaz" EntitySet="Zakaz" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SushiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Authorization">
+          <Key>
+            <PropertyRef Name="ID_Authorization" />
+          </Key>
+          <Property Name="ID_Authorization" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Authorization_Role" FromRole="Authorization" ToRole="Role" />
+          <NavigationProperty Name="Sotrudniki" Relationship="Self.FK_Sotrudnik_Authorization" FromRole="Authorization" ToRole="Sotrudniki" />
+        </EntityType>
+        <EntityType Name="Blida">
+          <Key>
+            <PropertyRef Name="ID_Blida" />
+          </Key>
+          <Property Name="ID_Blida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Blida" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prica_Blide" Type="Int32" Nullable="false" />
+          <Property Name="ID_Postavhik" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Postavhik" Relationship="Self.FK_Blida_Postavhik" FromRole="Blida" ToRole="Postavhik" />
+          <NavigationProperty Name="Zakaz" Relationship="Self.FK_Zakaz_Blida" FromRole="Blida" ToRole="Zakaz" />
+        </EntityType>
+        <EntityType Name="Chek">
+          <Key>
+            <PropertyRef Name="ID_Chek" />
+          </Key>
+          <Property Name="ID_Chek" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number_of_Check" Type="Int32" Nullable="false" />
+          <Property Name="ID_Sotrudnika" Type="Int32" Nullable="false" />
+          <Property Name="ID_Zakaz" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sotrudniki" Relationship="Self.FK_Chek_Sotrudniki" FromRole="Chek" ToRole="Sotrudniki" />
+          <NavigationProperty Name="Zakaz" Relationship="Self.FK_Chek_Zakaz" FromRole="Chek" ToRole="Zakaz" />
+        </EntityType>
+        <EntityType Name="Dolgnost">
+          <Key>
+            <PropertyRef Name="ID_Dolgnost" />
+          </Key>
+          <Property Name="ID_Dolgnost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Dolgnost" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Oklad_of_Dolgnost" Type="Decimal" Precision="32" Scale="2" Nullable="false" />
+          <Property Name="ID_Otdel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Otdel" Relationship="Self.FK_Otdel_Dolg" FromRole="Dolgnost" ToRole="Otdel" />
+          <NavigationProperty Name="Prikaz_o_Prieme" Relationship="Self.FK_Prikaz_o_Prieme_Dolgnost" FromRole="Dolgnost" ToRole="Prikaz_o_Prieme" />
+          <NavigationProperty Name="Sotrudniki" Relationship="Self.FK_Sotrudnik_Dolgnost" FromRole="Dolgnost" ToRole="Sotrudniki" />
+        </EntityType>
+        <EntityType Name="Klinet">
+          <Key>
+            <PropertyRef Name="ID_Klinet" />
+          </Key>
+          <Property Name="ID_Klinet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Familia_Klinet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name_Klinet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Otchestvo_Klinet" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nomet_Telefona" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Zakaz" Relationship="Self.FK_Blida_Klinet" FromRole="Klinet" ToRole="Zakaz" />
+        </EntityType>
+        <EntityType Name="Otdel">
+          <Key>
+            <PropertyRef Name="ID_Otdel" />
+          </Key>
+          <Property Name="ID_Otdel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Otdel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dolgnost" Relationship="Self.FK_Otdel_Dolg" FromRole="Otdel" ToRole="Dolgnost" />
+        </EntityType>
+        <EntityType Name="Postavhik">
+          <Key>
+            <PropertyRef Name="ID_Postavhik" />
+          </Key>
+          <Property Name="ID_Postavhik" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Familia_Postavhik" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name_Postavhik" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Otchestvo_Postavik" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seria_Document" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nomer_Document" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Blida" Relationship="Self.FK_Blida_Postavhik" FromRole="Postavhik" ToRole="Blida" />
+        </EntityType>
+        <EntityType Name="Prikaz_o_Prieme">
+          <Key>
+            <PropertyRef Name="ID_Prikaz_o_Prieme" />
+          </Key>
+          <Property Name="ID_Prikaz_o_Prieme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Dolgnost" Type="Int32" Nullable="false" />
+          <Property Name="ID_Soiskatel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dolgnost" Relationship="Self.FK_Prikaz_o_Prieme_Dolgnost" FromRole="Prikaz_o_Prieme" ToRole="Dolgnost" />
+          <NavigationProperty Name="Soiskatel" Relationship="Self.FK_Prikaz_o_Prieme_Soiskatel" FromRole="Prikaz_o_Prieme" ToRole="Soiskatel" />
+          <NavigationProperty Name="Sotrudniki" Relationship="Self.FK_Sotrudnik_Prikaz_o_Prieme" FromRole="Prikaz_o_Prieme" ToRole="Sotrudniki" />
+        </EntityType>
+        <EntityType Name="Prikaz_ob_Ovolen">
+          <Key>
+            <PropertyRef Name="ID_Prikaz_ob_Ovolen" />
+          </Key>
+          <Property Name="ID_Prikaz_ob_Ovolen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nomer_Prikaz" Type="Int32" Nullable="false" />
+          <Property Name="Prichina" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Sotrudnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sotrudniki" Relationship="Self.FK_Prikaz_ob_Ovolen_Sotrudniki" FromRole="Prikaz_ob_Ovolen" ToRole="Sotrudniki" />
+        </EntityType>
+        <EntityType Name="Rezume">
+          <Key>
+            <PropertyRef Name="ID_Rezume" />
+          </Key>
+          <Property Name="ID_Rezume" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Soiskatel" Type="Int32" Nullable="false" />
+          <Property Name="Cel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Obrazovanii" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opit_Raboti" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Proff_Naviki" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Soiskatel" Relationship="Self.FK_Rezume_Soiskatel" FromRole="Rezume" ToRole="Soiskatel" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_Role" />
+          </Key>
+          <Property Name="ID_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Role" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Authorization" Relationship="Self.FK_Authorization_Role" FromRole="Role" ToRole="Authorization" />
+        </EntityType>
+        <EntityType Name="Soiskatel">
+          <Key>
+            <PropertyRef Name="ID_Soiskatel" />
+          </Key>
+          <Property Name="ID_Soiskatel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Familia_Soiskatel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name_Soiskatel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Otchestvo_Soiskatel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seria_Document" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nomer_Document" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Data_Rojdrnia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Prikaz_o_Prieme" Relationship="Self.FK_Prikaz_o_Prieme_Soiskatel" FromRole="Soiskatel" ToRole="Prikaz_o_Prieme" />
+          <NavigationProperty Name="Rezume" Relationship="Self.FK_Rezume_Soiskatel" FromRole="Soiskatel" ToRole="Rezume" />
+        </EntityType>
+        <EntityType Name="Sotrudniki">
+          <Key>
+            <PropertyRef Name="ID_Sotrudnika" />
+          </Key>
+          <Property Name="ID_Sotrudnika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Familia_Sotrudnika" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name_Sotrudnika" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Otchestvo_Sotrudnika" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seria_Document" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Number_Document" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Dolgnost" Type="Int32" Nullable="false" />
+          <Property Name="ID_Authorization" Type="Int32" Nullable="false" />
+          <Property Name="ID_Prikaz_o_Prieme" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Authorization" Relationship="Self.FK_Sotrudnik_Authorization" FromRole="Sotrudniki" ToRole="Authorization" />
+          <NavigationProperty Name="Chek" Relationship="Self.FK_Chek_Sotrudniki" FromRole="Sotrudniki" ToRole="Chek" />
+          <NavigationProperty Name="Dolgnost" Relationship="Self.FK_Sotrudnik_Dolgnost" FromRole="Sotrudniki" ToRole="Dolgnost" />
+          <NavigationProperty Name="Prikaz_o_Prieme" Relationship="Self.FK_Sotrudnik_Prikaz_o_Prieme" FromRole="Sotrudniki" ToRole="Prikaz_o_Prieme" />
+          <NavigationProperty Name="Prikaz_ob_Ovolen" Relationship="Self.FK_Prikaz_ob_Ovolen_Sotrudniki" FromRole="Sotrudniki" ToRole="Prikaz_ob_Ovolen" />
+        </EntityType>
+        <EntityType Name="Zakaz">
+          <Key>
+            <PropertyRef Name="ID_Zakaz" />
+          </Key>
+          <Property Name="ID_Zakaz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Blida" Type="Int32" Nullable="false" />
+          <Property Name="ID_Klinet" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Blida" Relationship="Self.FK_Zakaz_Blida" FromRole="Zakaz" ToRole="Blida" />
+          <NavigationProperty Name="Chek" Relationship="Self.FK_Chek_Zakaz" FromRole="Zakaz" ToRole="Chek" />
+          <NavigationProperty Name="Klinet" Relationship="Self.FK_Blida_Klinet" FromRole="Zakaz" ToRole="Klinet" />
+        </EntityType>
+        <Association Name="FK_Authorization_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_Role" />
+            </Principal>
+            <Dependent Role="Authorization">
+              <PropertyRef Name="ID_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Authorization">
+          <End Role="Authorization" Type="Self.Authorization" Multiplicity="1" />
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authorization">
+              <PropertyRef Name="ID_Authorization" />
+            </Principal>
+            <Dependent Role="Sotrudniki">
+              <PropertyRef Name="ID_Authorization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blida_Postavhik">
+          <End Role="Postavhik" Type="Self.Postavhik" Multiplicity="1" />
+          <End Role="Blida" Type="Self.Blida" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postavhik">
+              <PropertyRef Name="ID_Postavhik" />
+            </Principal>
+            <Dependent Role="Blida">
+              <PropertyRef Name="ID_Postavhik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zakaz_Blida">
+          <End Role="Blida" Type="Self.Blida" Multiplicity="1" />
+          <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blida">
+              <PropertyRef Name="ID_Blida" />
+            </Principal>
+            <Dependent Role="Zakaz">
+              <PropertyRef Name="ID_Blida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chek_Sotrudniki">
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="1" />
+          <End Role="Chek" Type="Self.Chek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudniki">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Principal>
+            <Dependent Role="Chek">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chek_Zakaz">
+          <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="1" />
+          <End Role="Chek" Type="Self.Chek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zakaz">
+              <PropertyRef Name="ID_Zakaz" />
+            </Principal>
+            <Dependent Role="Chek">
+              <PropertyRef Name="ID_Zakaz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otdel_Dolg">
+          <End Role="Otdel" Type="Self.Otdel" Multiplicity="1" />
+          <End Role="Dolgnost" Type="Self.Dolgnost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Otdel">
+              <PropertyRef Name="ID_Otdel" />
+            </Principal>
+            <Dependent Role="Dolgnost">
+              <PropertyRef Name="ID_Otdel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prikaz_o_Prieme_Dolgnost">
+          <End Role="Dolgnost" Type="Self.Dolgnost" Multiplicity="1" />
+          <End Role="Prikaz_o_Prieme" Type="Self.Prikaz_o_Prieme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolgnost">
+              <PropertyRef Name="ID_Dolgnost" />
+            </Principal>
+            <Dependent Role="Prikaz_o_Prieme">
+              <PropertyRef Name="ID_Dolgnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Dolgnost">
+          <End Role="Dolgnost" Type="Self.Dolgnost" Multiplicity="1" />
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolgnost">
+              <PropertyRef Name="ID_Dolgnost" />
+            </Principal>
+            <Dependent Role="Sotrudniki">
+              <PropertyRef Name="ID_Dolgnost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blida_Klinet">
+          <End Role="Klinet" Type="Self.Klinet" Multiplicity="1" />
+          <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klinet">
+              <PropertyRef Name="ID_Klinet" />
+            </Principal>
+            <Dependent Role="Zakaz">
+              <PropertyRef Name="ID_Klinet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prikaz_o_Prieme_Soiskatel">
+          <End Role="Soiskatel" Type="Self.Soiskatel" Multiplicity="1" />
+          <End Role="Prikaz_o_Prieme" Type="Self.Prikaz_o_Prieme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Soiskatel">
+              <PropertyRef Name="ID_Soiskatel" />
+            </Principal>
+            <Dependent Role="Prikaz_o_Prieme">
+              <PropertyRef Name="ID_Soiskatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sotrudnik_Prikaz_o_Prieme">
+          <End Role="Prikaz_o_Prieme" Type="Self.Prikaz_o_Prieme" Multiplicity="1" />
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prikaz_o_Prieme">
+              <PropertyRef Name="ID_Prikaz_o_Prieme" />
+            </Principal>
+            <Dependent Role="Sotrudniki">
+              <PropertyRef Name="ID_Prikaz_o_Prieme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prikaz_ob_Ovolen_Sotrudniki">
+          <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="1" />
+          <End Role="Prikaz_ob_Ovolen" Type="Self.Prikaz_ob_Ovolen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudniki">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Principal>
+            <Dependent Role="Prikaz_ob_Ovolen">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_Soiskatel">
+          <End Role="Soiskatel" Type="Self.Soiskatel" Multiplicity="1" />
+          <End Role="Rezume" Type="Self.Rezume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Soiskatel">
+              <PropertyRef Name="ID_Soiskatel" />
+            </Principal>
+            <Dependent Role="Rezume">
+              <PropertyRef Name="ID_Soiskatel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SushiEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authorization" EntityType="Self.Authorization" />
+          <EntitySet Name="Blida" EntityType="Self.Blida" />
+          <EntitySet Name="Chek" EntityType="Self.Chek" />
+          <EntitySet Name="Dolgnost" EntityType="Self.Dolgnost" />
+          <EntitySet Name="Klinet" EntityType="Self.Klinet" />
+          <EntitySet Name="Otdel" EntityType="Self.Otdel" />
+          <EntitySet Name="Postavhik" EntityType="Self.Postavhik" />
+          <EntitySet Name="Prikaz_o_Prieme" EntityType="Self.Prikaz_o_Prieme" />
+          <EntitySet Name="Prikaz_ob_Ovolen" EntityType="Self.Prikaz_ob_Ovolen" />
+          <EntitySet Name="Rezume" EntityType="Self.Rezume" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Soiskatel" EntityType="Self.Soiskatel" />
+          <EntitySet Name="Sotrudniki" EntityType="Self.Sotrudniki" />
+          <EntitySet Name="Zakaz" EntityType="Self.Zakaz" />
+          <AssociationSet Name="FK_Authorization_Role" Association="Self.FK_Authorization_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Authorization" EntitySet="Authorization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Authorization" Association="Self.FK_Sotrudnik_Authorization">
+            <End Role="Authorization" EntitySet="Authorization" />
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blida_Postavhik" Association="Self.FK_Blida_Postavhik">
+            <End Role="Postavhik" EntitySet="Postavhik" />
+            <End Role="Blida" EntitySet="Blida" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zakaz_Blida" Association="Self.FK_Zakaz_Blida">
+            <End Role="Blida" EntitySet="Blida" />
+            <End Role="Zakaz" EntitySet="Zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chek_Sotrudniki" Association="Self.FK_Chek_Sotrudniki">
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+            <End Role="Chek" EntitySet="Chek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chek_Zakaz" Association="Self.FK_Chek_Zakaz">
+            <End Role="Zakaz" EntitySet="Zakaz" />
+            <End Role="Chek" EntitySet="Chek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otdel_Dolg" Association="Self.FK_Otdel_Dolg">
+            <End Role="Otdel" EntitySet="Otdel" />
+            <End Role="Dolgnost" EntitySet="Dolgnost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prikaz_o_Prieme_Dolgnost" Association="Self.FK_Prikaz_o_Prieme_Dolgnost">
+            <End Role="Dolgnost" EntitySet="Dolgnost" />
+            <End Role="Prikaz_o_Prieme" EntitySet="Prikaz_o_Prieme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Dolgnost" Association="Self.FK_Sotrudnik_Dolgnost">
+            <End Role="Dolgnost" EntitySet="Dolgnost" />
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blida_Klinet" Association="Self.FK_Blida_Klinet">
+            <End Role="Klinet" EntitySet="Klinet" />
+            <End Role="Zakaz" EntitySet="Zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prikaz_o_Prieme_Soiskatel" Association="Self.FK_Prikaz_o_Prieme_Soiskatel">
+            <End Role="Soiskatel" EntitySet="Soiskatel" />
+            <End Role="Prikaz_o_Prieme" EntitySet="Prikaz_o_Prieme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sotrudnik_Prikaz_o_Prieme" Association="Self.FK_Sotrudnik_Prikaz_o_Prieme">
+            <End Role="Prikaz_o_Prieme" EntitySet="Prikaz_o_Prieme" />
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prikaz_ob_Ovolen_Sotrudniki" Association="Self.FK_Prikaz_ob_Ovolen_Sotrudniki">
+            <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+            <End Role="Prikaz_ob_Ovolen" EntitySet="Prikaz_ob_Ovolen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_Soiskatel" Association="Self.FK_Rezume_Soiskatel">
+            <End Role="Soiskatel" EntitySet="Soiskatel" />
+            <End Role="Rezume" EntitySet="Rezume" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SushiModelContainer" CdmEntityContainer="SushiEntities1">
+          <EntitySetMapping Name="Authorization">
+            <EntityTypeMapping TypeName="SushiModel.Authorization">
+              <MappingFragment StoreEntitySet="Authorization">
+                <ScalarProperty Name="ID_Authorization" ColumnName="ID_Authorization" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blida">
+            <EntityTypeMapping TypeName="SushiModel.Blida">
+              <MappingFragment StoreEntitySet="Blida">
+                <ScalarProperty Name="ID_Blida" ColumnName="ID_Blida" />
+                <ScalarProperty Name="Name_Blida" ColumnName="Name_Blida" />
+                <ScalarProperty Name="Prica_Blide" ColumnName="Prica_Blide" />
+                <ScalarProperty Name="ID_Postavhik" ColumnName="ID_Postavhik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chek">
+            <EntityTypeMapping TypeName="SushiModel.Chek">
+              <MappingFragment StoreEntitySet="Chek">
+                <ScalarProperty Name="ID_Chek" ColumnName="ID_Chek" />
+                <ScalarProperty Name="Number_of_Check" ColumnName="Number_of_Check" />
+                <ScalarProperty Name="ID_Sotrudnika" ColumnName="ID_Sotrudnika" />
+                <ScalarProperty Name="ID_Zakaz" ColumnName="ID_Zakaz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dolgnost">
+            <EntityTypeMapping TypeName="SushiModel.Dolgnost">
+              <MappingFragment StoreEntitySet="Dolgnost">
+                <ScalarProperty Name="ID_Dolgnost" ColumnName="ID_Dolgnost" />
+                <ScalarProperty Name="Name_Dolgnost" ColumnName="Name_Dolgnost" />
+                <ScalarProperty Name="Oklad_of_Dolgnost" ColumnName="Oklad_of_Dolgnost" />
+                <ScalarProperty Name="ID_Otdel" ColumnName="ID_Otdel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klinet">
+            <EntityTypeMapping TypeName="SushiModel.Klinet">
+              <MappingFragment StoreEntitySet="Klinet">
+                <ScalarProperty Name="ID_Klinet" ColumnName="ID_Klinet" />
+                <ScalarProperty Name="Familia_Klinet" ColumnName="Familia_Klinet" />
+                <ScalarProperty Name="Name_Klinet" ColumnName="Name_Klinet" />
+                <ScalarProperty Name="Otchestvo_Klinet" ColumnName="Otchestvo_Klinet" />
+                <ScalarProperty Name="Nomet_Telefona" ColumnName="Nomet_Telefona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Otdel">
+            <EntityTypeMapping TypeName="SushiModel.Otdel">
+              <MappingFragment StoreEntitySet="Otdel">
+                <ScalarProperty Name="ID_Otdel" ColumnName="ID_Otdel" />
+                <ScalarProperty Name="Name_Otdel" ColumnName="Name_Otdel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Postavhik">
+            <EntityTypeMapping TypeName="SushiModel.Postavhik">
+              <MappingFragment StoreEntitySet="Postavhik">
+                <ScalarProperty Name="ID_Postavhik" ColumnName="ID_Postavhik" />
+                <ScalarProperty Name="Familia_Postavhik" ColumnName="Familia_Postavhik" />
+                <ScalarProperty Name="Name_Postavhik" ColumnName="Name_Postavhik" />
+                <ScalarProperty Name="Otchestvo_Postavik" ColumnName="Otchestvo_Postavik" />
+                <ScalarProperty Name="Seria_Document" ColumnName="Seria_Document" />
+                <ScalarProperty Name="Nomer_Document" ColumnName="Nomer_Document" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prikaz_o_Prieme">
+            <EntityTypeMapping TypeName="SushiModel.Prikaz_o_Prieme">
+              <MappingFragment StoreEntitySet="Prikaz_o_Prieme">
+                <ScalarProperty Name="ID_Prikaz_o_Prieme" ColumnName="ID_Prikaz_o_Prieme" />
+                <ScalarProperty Name="ID_Dolgnost" ColumnName="ID_Dolgnost" />
+                <ScalarProperty Name="ID_Soiskatel" ColumnName="ID_Soiskatel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prikaz_ob_Ovolen">
+            <EntityTypeMapping TypeName="SushiModel.Prikaz_ob_Ovolen">
+              <MappingFragment StoreEntitySet="Prikaz_ob_Ovolen">
+                <ScalarProperty Name="ID_Prikaz_ob_Ovolen" ColumnName="ID_Prikaz_ob_Ovolen" />
+                <ScalarProperty Name="Nomer_Prikaz" ColumnName="Nomer_Prikaz" />
+                <ScalarProperty Name="Prichina" ColumnName="Prichina" />
+                <ScalarProperty Name="ID_Sotrudnika" ColumnName="ID_Sotrudnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezume">
+            <EntityTypeMapping TypeName="SushiModel.Rezume">
+              <MappingFragment StoreEntitySet="Rezume">
+                <ScalarProperty Name="ID_Rezume" ColumnName="ID_Rezume" />
+                <ScalarProperty Name="ID_Soiskatel" ColumnName="ID_Soiskatel" />
+                <ScalarProperty Name="Cel" ColumnName="Cel" />
+                <ScalarProperty Name="Obrazovanii" ColumnName="Obrazovanii" />
+                <ScalarProperty Name="Opit_Raboti" ColumnName="Opit_Raboti" />
+                <ScalarProperty Name="Proff_Naviki" ColumnName="Proff_Naviki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="SushiModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
+                <ScalarProperty Name="Name_Role" ColumnName="Name_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Soiskatel">
+            <EntityTypeMapping TypeName="SushiModel.Soiskatel">
+              <MappingFragment StoreEntitySet="Soiskatel">
+                <ScalarProperty Name="ID_Soiskatel" ColumnName="ID_Soiskatel" />
+                <ScalarProperty Name="Familia_Soiskatel" ColumnName="Familia_Soiskatel" />
+                <ScalarProperty Name="Name_Soiskatel" ColumnName="Name_Soiskatel" />
+                <ScalarProperty Name="Otchestvo_Soiskatel" ColumnName="Otchestvo_Soiskatel" />
+                <ScalarProperty Name="Seria_Document" ColumnName="Seria_Document" />
+                <ScalarProperty Name="Nomer_Document" ColumnName="Nomer_Document" />
+                <ScalarProperty Name="Data_Rojdrnia" ColumnName="Data_Rojdrnia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sotrudniki">
+            <EntityTypeMapping TypeName="SushiModel.Sotrudniki">
+              <MappingFragment StoreEntitySet="Sotrudniki">
+                <ScalarProperty Name="ID_Sotrudnika" ColumnName="ID_Sotrudnika" />
+                <ScalarProperty Name="Familia_Sotrudnika" ColumnName="Familia_Sotrudnika" />
+                <ScalarProperty Name="Name_Sotrudnika" ColumnName="Name_Sotrudnika" />
+                <ScalarProperty Name="Otchestvo_Sotrudnika" ColumnName="Otchestvo_Sotrudnika" />
+                <ScalarProperty Name="Seria_Document" ColumnName="Seria_Document" />
+                <ScalarProperty Name="Number_Document" ColumnName="Number_Document" />
+                <ScalarProperty Name="ID_Dolgnost" ColumnName="ID_Dolgnost" />
+                <ScalarProperty Name="ID_Authorization" ColumnName="ID_Authorization" />
+                <ScalarProperty Name="ID_Prikaz_o_Prieme" ColumnName="ID_Prikaz_o_Prieme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zakaz">
+            <EntityTypeMapping TypeName="SushiModel.Zakaz">
+              <MappingFragment StoreEntitySet="Zakaz">
+                <ScalarProperty Name="ID_Zakaz" ColumnName="ID_Zakaz" />
+                <ScalarProperty Name="ID_Blida" ColumnName="ID_Blida" />
+                <ScalarProperty Name="ID_Klinet" ColumnName="ID_Klinet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

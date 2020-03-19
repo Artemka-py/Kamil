@@ -1,0 +1,17 @@
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\bin\Debug\Sushi_Shop.exe.config
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\bin\Debug\Sushi_Shop.exe
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\bin\Debug\Sushi_Shop.pdb
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop.csprojAssemblyReference.cache
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Authorization.g.cs
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\MainWindow.g.cs
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\App.g.cs
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop_MarkupCompile.cache
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop_MarkupCompile.lref
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Authorization.baml
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\MainWindow.baml
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop.g.resources
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop.Properties.Resources.resources
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop.csproj.GenerateResource.cache
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop.csproj.CoreCompileInputs.cache
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop.exe
+C:\Users\Артём\Documents\Камиль КП\WPF\Sushi_Shop\Sushi_Shop\obj\Debug\Sushi_Shop.pdb
